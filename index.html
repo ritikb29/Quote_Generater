@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quote Generator</title>
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #a5ebf5;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 50vh;
+            width: 50%;
+            background-color: aquamarine;
+            border: 2px solid black;
+            border-style: double;
+            border-width: 10px;
+            padding: 20px;
+            text-align: center;
+        }
+        .author {
+            align-self: flex-end;
+            justify-self: flex-end;
+            font-weight: 800;
+        }
+        .quotes {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        @media screen and (max-width: 600px) {
+            .container {
+                width: 80%;
+            }
+        }
+        .btn {
+            background-color: rgb(53, 53, 253);
+            border-radius: 20px;
+            height: 30px;
+            border: none;
+            color: white;
+            cursor: pointer;
+            margin-top: 20px;
+            border: 1px solid white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <p class="quotes" id="quote">Click the button to generate a new quote!</p>
+        <p class="author" id="author">Author Name</p>
+        <button class="btn" id="generateQuoteBtn"><b> Generate Quote</b></button>
+    </div>
+
+    <script>
+        const quotes = [
+            { text: "The best way to get started is to quit talking and begin doing.", author: "Walt Disney" },
+            { text: "Life is what happens when you're busy making other plans.", author: "John Lennon" },
+            { text: "Do not take life too seriously. You will never get out of it alive.", author: "Elbert Hubbard" },
+            { text: "Success is not final, failure is not fatal: It is the courage to continue that counts.", author: "Winston Churchill" },
+            { text: "In the end, we only regret the chances we didn’t take.", author: "Lewis Carroll" },
+            { text: "Believe you can and you’re halfway there.", author: "Theodore Roosevelt" },
+            { text: "Your time is limited, so don’t waste it living someone else’s life.", author: "Steve Jobs" },
+            { text: "The purpose of our lives is to be happy.", author: "Dalai Lama" },
+            { text: "Success usually comes to those who are too busy to be looking for it.", author: "Henry David Thoreau" },
+            { text: "If you set your goals ridiculously high and it’s a failure, you will fail above everyone else’s success.", author: "James Cameron" },
+            { text: "Don’t watch the clock; do what it does. Keep going.", author: "Sam Levenson" },
+            { text: "You miss 100% of the shots you don’t take.", author: "Wayne Gretzky" },
+            { text: "If you want to live a happy life, tie it to a goal, not to people or things.", author: "Albert Einstein" }
+        ];
+
+        const quoteText = document.getElementById('quote');
+        const quoteAuthor = document.getElementById('author');
+        const generateQuoteBtn = document.getElementById('generateQuoteBtn');
+
+        generateQuoteBtn.addEventListener('click', () => {
+            const randomIndex = Math.floor(Math.random() * quotes.length);
+            const randomQuote = quotes[randomIndex];
+            quoteText.textContent = randomQuote.text;
+            quoteAuthor.textContent = randomQuote.author;
+        });
+    </script>
+</body>
+</html>
